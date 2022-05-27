@@ -1,0 +1,12 @@
+import pandas as pd
+pop_data = [
+    ["Shanghai", "E"],
+    ["Beijing", "N"],
+    ["Hangzhou", "E"],
+    ["Zibo","N"],
+    ["Nanning","S"]
+]
+header = ["city", "region"]
+pop_df = pd.DataFrame(pop_data, columns=header)
+pop_df = pop_df.set_index("city")
+print(pop_df)
