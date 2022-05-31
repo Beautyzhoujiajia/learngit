@@ -58,4 +58,20 @@ grouped_by_class = merged_df.groupby("class")
 print(grouped_by_class["population"].mean())
 #save
 merged_df.to_csv("merged.csv")
+#warm up
+large_df = merged_by_class.get_group("Large")
+print(large_df)
+large_df = merged_df(merged_df["class"]=="Large")
+print(large_df)
+#value_counts
+print(len(merged_df["class"].value_counts()))
+print(merged_df["class"].unique())
+#append
+new_row_ser = pd.Series([18.8,"Large","S"],name="Guangzhou",index=merged_df.columns)
+merged_df = merged_df.append(new_row_ser)
+print(merged_df)
+#sort_values
+merged_df = merged_df.sort_values("populaton",ascending=False)
+print(merged_df)
+
 
