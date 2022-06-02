@@ -31,6 +31,22 @@ for i in range(len(class_ser)):
     if "hoa" in curr_class or "healthy" in curr_class:
         print("------------")
         class_ser.iloc[i] = "hoa"
+    elif "pd" in  curr_class or "parkinson" in curr_class:
+        print("unrecongnized class:",curr_class)
+["class"]=class_ser
+print(df["class"].value_counts())
 
-print(class_ser.value_counts())
 #check  column types
+for column in df.columns:
+  print(column,df[colunm].dtype)
+  
+#printthe total seconds
+print(df["duration"].sum())#bug,the duration be the same
+#convert the duration column to integer type
+df["duration"]=df["duration"].astype(int)
+print(df["duration"].dtype)
+print(type(df["duration"].sum()))
+
+#write out the clearned dataframe to a file,for later use
+df.to_csv("pd_hoa_activities_cleaned.csv",index=False)
+
